@@ -1,0 +1,154 @@
+body {
+    background-color: blanchedalmond;
+    font-family: 'Kanit', sans-serif;
+}
+
+.container-initials {
+    /* just added height, border */
+    /* border: solid brown .1px; */
+    height: 100%; 
+
+
+
+    width: 100%;
+    position: absolute; /* to move vertically */
+    top: 35%;
+    font-size: 10px;
+}
+
+.container-parent-relative {
+    position: relative;  /* relative to the initials inside this div */
+}
+
+.container-letter {
+    display: inline-block; /* bring letters parallel */
+    transform: translateX(-90px); /* to center the initials */
+    width: 15rem;   /* set boundaries of the divs */
+    height: 20rem;
+    /* border: 5px solid #fff; */
+}
+
+.container-first {
+    color: green;
+    position: absolute;
+    left: 15%; 
+    
+}
+
+.container-second {
+    color: red;
+    position: absolute;
+    left: 35%; 
+}
+
+.container-third {
+    color: orange;
+    position: absolute;
+    left: 55%; 
+}
+
+.container-fourth {
+    color: rgb(51, 122, 255);
+    position: absolute;
+    left: 75%; 
+}
+
+.container-circle {
+    position: relative;
+    /* border: solid red .1px; */
+    border: solid blanchedalmond .1px;
+    height: 222px;
+}
+
+.dot {
+    height: 80px;
+    width: 80px;
+    background-color: blanchedalmond;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 70px;
+    top: 90px;
+}
+
+/* vertical part of the j-shape */
+p[a] {
+    /* border:rgb(51, 122, 255) solid .1px; */
+    border:blanchedalmond solid .1px;
+    width: 95px;
+    height: 5px;
+    transform: translateX(150px);
+    
+}
+
+/* horizontal part of the j-shape */
+p[b] {
+    transform: translateY(202px);
+}
+
+.container-second .container-j-shape {
+    /* border:rgb(51, 122, 255) solid .1px; */
+    height: 20px;
+    position: relative;
+}
+
+p[c] {
+    border:transparent solid .90px;
+    width: 95px;
+    height: 300px;
+    /* border:rgb(255, 51, 51) solid .1px; */
+    position: absolute;
+    left: 150px;
+    bottom: 50px;
+}
+
+p[d] {
+    transform: translateY(202px);
+    /* border:rgb(4, 253, 79) solid .1px; */
+    position: absolute;
+    bottom: 500px;
+}
+
+.container-third .container-j-shape {
+    transform: translateY(-65px);
+}
+
+.container-third .container-j-shape p[a] {
+    transform: scale(-1,1); /* mirror the j-shape for the letter a */
+    transform: translateY(-224px);
+} 
+
+.container-third .container-j-shape p[b] {
+    width: 250px;
+    /* border: rgb(255, 0, 0) solid .1px; */
+}
+
+.container-fourth .container-j-shape {
+    /* border:rgb(51, 122, 255) solid .1px; */
+    height: 20px;
+    transform: translateY(370px);
+    /* position: relative; */
+}
+
+.container-fourth .container-j-shape .first-j {
+    /* color: black; */
+    transform: translateX(-20px);
+}
+
+.container-fourth .container-j-shape .second-j {
+    /* color:rgb(255, 51, 197); */
+    transform: translateX(100px);
+}
+
+.container-fourth {
+    position: relative;
+    /* border: rgb(255, 0, 0) solid .1px; */
+
+} 
+
+.container-fourth p[a] {
+    /* color: rgb(7, 252, 23); */
+    position: absolute;
+    right: 314px;
+    top: -15px;
+}

@@ -1,0 +1,97 @@
+
+body {
+    background-image: url(../images/fishTank.jpg);
+
+}
+
+/* #background-img {
+    position: absolute;
+    height: 1080px;
+    width: 1920px;
+} */
+
+#front-fish-img {
+    position: absolute;
+    right: 600px;
+    transform: scale(0%);
+    animation: move-front-fish-img 10s ease-in-out 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes move-front-fish-img {
+    0% {
+        top: 150px;
+    }
+
+    50% {
+        transform: scale(60%);
+        top: 100px;
+    }
+
+    80% {
+        transform: scale(90%);
+        top: -1000px;
+    }
+
+    100% {
+        transform: scale(90%);
+        top: -3000px;
+    }
+}
+
+#bubbles-img {
+    position: absolute;
+    top: -150px;
+    right: 340px;
+    transform: scale(0%);
+    animation: move-bubbles-img 10s ease-in-out 6s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes move-bubbles-img {
+    20% {
+        transform: scale(50%);
+    }
+
+    35% {
+        transform: scale(50%);
+    }
+
+    100% {
+        top: -3000px;
+    }
+}
+
+#side-fish-img {
+    position: absolute;
+    animation: move-side-fish-img 20s ease-in-out 6s;
+    right: -1200px;
+    z-index: 3;
+}
+
+@keyframes move-side-fish-img {
+    100% {
+        right: 2000px;
+    }
+
+    0% {
+        right: -1200px;
+    }
+}
+
+#big-fish-img {
+    position: absolute;
+    animation: move-big-fish-img 15s ease-in-out 12s;
+    z-index: 2;
+    right: 2000px;
+}
+
+@keyframes move-big-fish-img {
+    100% {
+        right: -1200px;
+    }
+
+    0% {
+        right: 2000px;
+    }
+}

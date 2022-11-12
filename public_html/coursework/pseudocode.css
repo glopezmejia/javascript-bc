@@ -1,0 +1,51 @@
+/* the snake:
+
+Anatomy: 
+it will start of with a head and a tail
+
+    growing:
+    where head will be one div and tail will be one div
+    and where the tail will gain a new div when it eats 
+    the apple
+
+
+Movement: 
+it should start and start moving after keydown 
+and continue moving until new keydown or hits the edge
+
+    get an input, if no input has been collected,(loop?)
+    continue in the same direction 
+    -> keep doing the - or + 
+
+    // while (last_direction >= 37 && last_direction <= 40) {
+    //     let key = event.keyCode
+    //     console.log('key = %d\ and last direction = %d\n',key ,last_direction)
+
+    //     if (key != null)
+    //         last_direction = key
+    //         key = null
+
+    //     if (key === null) {
+    //         if (last_direction === 37) { //left
+    //             snake_head_left -= 50;
+    //             break
+    //         }
+    //         if (last_direction === 38) { //up
+    //             snake_head_top -= 50;
+    //             break
+    //         }
+    //         if (last_direction === 39) { // right
+    //             snake_head_left += 50;
+    //             break
+    //         }
+    //         if (last_direction === 40) { //down
+    //             snake_head_top += 50;
+    //             break
+    //         }
+    //     }
+    // }
+
+Dies: 
+if it collides with itself or the edge of the main
+div, it dies
+    */

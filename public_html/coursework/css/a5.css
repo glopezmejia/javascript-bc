@@ -1,0 +1,143 @@
+body {
+    background-color: blue;
+    color: red;
+}
+
+hr  {
+   border: 10px solid rgb(0, 255, 247);
+}
+
+li[a]  {
+    font-size: 300%;
+    font-family:monospace;
+}
+
+li[b] {
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'Anton', sans-serif;;
+}
+
+h1, li[a], li[b] {
+    text-align: right;
+}
+
+.nav-links a {
+    color: chartreuse;
+    font-family: 'Qwitcher Grypen', cursive;
+    font-size: 200%;
+}
+
+.nav-links a:hover {
+    color:white;
+    font-size: 500%;
+}
+
+.nav-links:hover {
+    background-color: rgb(225, 255, 0);
+    border: 5px dashed whitesmoke;
+}
+
+h1::first-letter{
+    font-family: 'Anton', sans-serif;
+    font-size: 300%;
+}
+
+h1 {
+    font-family: 'Combo', cursive;
+    color:rgb(251, 0, 255);
+}
+
+nav ~ p {
+    font-family: 'Qwitcher Grypen', cursive;
+    font-size: 200%;
+}
+
+.p1 {
+    margin-bottom: 100px;
+    transform:skew(40deg);
+}
+
+.p1:hover {
+    color: chartreuse;
+    font-size: 300%;
+}
+
+.p2 {
+    font-family: 'Anton', sans-serif;
+    /* margin-top: 300px; */
+    margin: auto;
+    transform: rotate(90deg);
+
+}
+
+.p2:hover {
+    text-transform: capitalize;
+    color: aqua;
+    
+}
+
+#funny-image {
+    display: none;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.button-style {
+    text-align: center;
+}
+
+#btnID {
+    width: 70%;
+    height: 300px;
+    margin-bottom: 50%;
+}
+
+footer {
+    width: auto;
+}
+
+.footer {
+    /* background-color: black; */
+    font-size: 500%;
+}
+
+.footer p {
+    padding: 50px;
+    transform: none;
+    background-color: white;
+    color: rgb(255, 255, 0);
+    font-family: 'Anton', sans-serif;
+    transform: rotateX(30deg);
+    text-shadow: 30px 2px  #ff0000;
+}
+
+.random-text li{
+    list-style-type: none;
+}
+
+p[a] {
+    /* text-align: center; */
+    width: 100%;
+    padding: 50px;
+    transform: none;
+    background-color: white;
+    color: rgb(255, 255, 0);
+    font-family: 'Anton', sans-serif;
+    transform: rotateX(30deg);
+    text-shadow: 16px 2px  #ff0000;
+    letter-spacing: 35px;
+    font-size: 70%;
+}
+
+.footer {
+    text-align: center;
+}
+
+p[b] {
+    text-shadow: none;
+    background-color: blue;
+}
+
