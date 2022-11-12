@@ -1,3 +1,5 @@
+// The thanos asset is based on "Fortnite-Thanos" (https://sketchfab.com/3d-models/fortnite-thanos-1ad8e412639d4bd78bef9c3ea72b502c) by Fortnite re-uploaded (https://sketchfab.com/muhamedataman032) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+
 // babylon documentation;
 // https://doc.babylonjs.com/features/featuresDeepDive/scene
 
@@ -38,13 +40,33 @@ let createScene = function () {
     let light = new B.HemisphericLight("hemispheric-light", new B.Vector3(0, 1, 0), scene);
     light.intensity = 0.75;
 
-    // createGroundAndSkyBox(scene)
+    createGroundAndSkyBox(scene)
 
-    BABYLON.SceneLoader.ImportMesh(null, "../images/model/", "model.obj", scene,
-        function (meshes, particalSystem, skeletons) {
-            console.log(meshes)
+    BABYLON.SceneLoader.ImportMesh(null, "./javascript/assets/fortnite_thanos/", "scene.gltf", scene,
+    function (meshes, particalSystem, skeletons) {
+        console.log(meshes)
+
+        for (let mesh of meshes) {
+            mesh.checkCollisions = true;
+
+            mesh.rotation.y = 0.625
+            mesh.rotation.x = 0.2
+            mesh.rotation.z = 0.3
         }
-    )
+
+        let thanos = meshes[0]
+        for (let i = 1; i < meshes.length; i++) {
+            meshes[i].setParent(thanos)
+        }
+
+        thanos.position.y = 70;
+        // thanos.scaling.x = 5; 
+        // thanos.scaling.y = 5; 
+    })
+    
+
+    
+    
 
     //creates set of infinity stones
     const reality = B.MeshBuilder.CreateSphere("sphere", {diameterX: 20, diameterY: 40, diameterZ: 20}, scene);
