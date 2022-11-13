@@ -1,4 +1,6 @@
-// The thanos asset is based on "Fortnite-Thanos" (https://sketchfab.com/3d-models/fortnite-thanos-1ad8e412639d4bd78bef9c3ea72b502c) by Fortnite re-uploaded (https://sketchfab.com/muhamedataman032) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+// "thanos Dancing Twerk Ver2" (https://skfb.ly/6RSzz) by Kirill.Gorskikh is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+//"Thanos Infinity sword (With Emission)" (https://skfb.ly/6XqMS) by ikhlasfathoni is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
 
 // babylon documentation;
 // https://doc.babylonjs.com/features/featuresDeepDive/scene
@@ -23,11 +25,11 @@ let createScene = function () {
     //creates a new scene with gravity enabled
     let scene = new B.Scene(engine);
         // scene.gravity = new B.Vector3(0, -9.81, 0);
-        scene.gravity = new B.Vector3(0, -0.15, 0);
+        scene.gravity = new B.Vector3(0, 0.0, 0);
         scene.collisionsEnabled = true;
 
     //creates a camera and attaches to the canvas
-    let camera = new B.UniversalCamera("UniversalCamera", new B.Vector3(2000,100,1000), scene);
+    let camera = new B.UniversalCamera("UniversalCamera", new B.Vector3(1500,200,500), scene);
     // let camera = new B.ArcRotateCamera("cam", 0.75 * Math.PI, 0.40 * Math.PI, 60, new B.Vector3(0, -7, 0), scene);
     camera.attachControl(canvas, false);
         camera.applyGravity = true;
@@ -42,32 +44,54 @@ let createScene = function () {
 
     createGroundAndSkyBox(scene)
 
-    BABYLON.SceneLoader.ImportMesh(null, "./javascript/assets/fortnite_thanos/", "scene.gltf", scene,
-    function (meshes, particalSystem, skeletons) {
+    // display the axes in babylon
+    new BABYLON.AxesViewer(scene, 5);
+    const box = BABYLON.MeshBuilder.CreateBox("box", {size : 20});
+    const localAxes = new BABYLON.AxesViewer(scene, 1000);
+    localAxes.xAxis.parent = box;
+    localAxes.yAxis.parent = box;
+    localAxes.zAxis.parent = box;
+
+    // creates a dancing thanos
+    BABYLON.SceneLoader.ImportMesh(null, "./javascript/assets/thanos_dancing/", "scene.gltf", scene,
+    function (meshes) {
         console.log(meshes)
 
         for (let mesh of meshes) {
             mesh.checkCollisions = true;
-
-            mesh.rotation.y = 0.625
-            mesh.rotation.x = 0.2
-            mesh.rotation.z = 0.3
+            mesh.rotation.y = -0.625
+            mesh.position = new B.Vector3(1500, -22, 0);
         }
 
         let thanos = meshes[0]
         for (let i = 1; i < meshes.length; i++) {
             meshes[i].setParent(thanos)
         }
+    })
 
-        thanos.position.y = 70;
-        // thanos.scaling.x = 5; 
-        // thanos.scaling.y = 5; 
+    //creates thanos' sword 
+    BABYLON.SceneLoader.ImportMesh(null, "./javascript/assets/thanos_sword/", "scene.gltf", scene,
+    function (meshes) {
+        console.log(meshes)
+
+        for (let mesh of meshes) {
+            mesh.checkCollisions = true;
+        }
+
+        let sword = meshes[0]
+        for (let i = 1; i < meshes.length; i++) {
+            meshes[i].setParent(sword)
+        }
+
+        sword.position = new B.Vector3(-400,130,100);
+
+        sword.scaling.x = 100;
+        sword.scaling.y = 100;
+        sword.scaling.z = 100;
+
+        sword.rotation = new BABYLON.Vector3(0, -.4, 2);
     })
     
-
-    
-    
-
     //creates set of infinity stones
     const reality = B.MeshBuilder.CreateSphere("sphere", {diameterX: 20, diameterY: 40, diameterZ: 20}, scene);
     const soul = B.MeshBuilder.CreateSphere("sphere", {diameterX: 20, diameterY: 40, diameterZ: 20}, scene);
@@ -77,12 +101,12 @@ let createScene = function () {
     const space = B.MeshBuilder.CreateSphere("sphere", {diameterX: 20, diameterY: 40, diameterZ: 20}, scene);
     
     //sets the position of all infinity stones
-    reality.position = new B.Vector3(55, 70, -225);     // 1 o clock
-    soul.position = new B.Vector3(150, 70, 150);        // 9 o clock
-    time.position = new B.Vector3(230, 70, -30);        // 11 o clock
-    mind.position = new B.Vector3(-150, 70, -150);      // 3 o clock
-    power.position = new B.Vector3(-50, 70, 200);       // 8 o clock
-    space.position = new B.Vector3(-205, 70, 35);       // 4 o clock
+    reality.position = new B.Vector3(55, 450, -225);     // 1 o clock
+    soul.position = new B.Vector3(150, 450, 150);        // 9 o clock
+    time.position = new B.Vector3(230, 450, -30);        // 11 o clock
+    mind.position = new B.Vector3(-150, 450, -150);      // 3 o clock
+    power.position = new B.Vector3(-50, 450, 200);       // 8 o clock
+    space.position = new B.Vector3(-205, 450, 35);       // 4 o clock
 
     //creates the material for the stones
     material = new B.StandardMaterial("texture1");
