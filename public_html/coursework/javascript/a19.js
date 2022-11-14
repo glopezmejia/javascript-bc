@@ -1,6 +1,6 @@
 // "thanos Dancing Twerk Ver2" (https://skfb.ly/6RSzz) by Kirill.Gorskikh is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
-//"Thanos Infinity sword (With Emission)" (https://skfb.ly/6XqMS) by ikhlasfathoni is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
-
+// "Thanos Infinity sword (With Emission)" (https://skfb.ly/6XqMS) by ikhlasfathoni is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+// "Xian SpaceShip" (https://skfb.ly/opYV7) by Valery Kharitonov is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
 // babylon documentation;
 // https://doc.babylonjs.com/features/featuresDeepDive/scene
@@ -45,12 +45,14 @@ let createScene = function () {
     createGroundAndSkyBox(scene)
 
     // display the axes in babylon
+    /*
     new BABYLON.AxesViewer(scene, 5);
     const box = BABYLON.MeshBuilder.CreateBox("box", {size : 20});
     const localAxes = new BABYLON.AxesViewer(scene, 1000);
     localAxes.xAxis.parent = box;
     localAxes.yAxis.parent = box;
     localAxes.zAxis.parent = box;
+    */
 
     // creates a dancing thanos
     BABYLON.SceneLoader.ImportMesh(null, "./javascript/assets/thanos_dancing/", "scene.gltf", scene,
@@ -90,6 +92,24 @@ let createScene = function () {
         sword.scaling.z = 100;
 
         sword.rotation = new BABYLON.Vector3(0, -.4, 2);
+    })
+
+    //creates thanos' spaceship
+    BABYLON.SceneLoader.ImportMesh(null, "./javascript/assets/white_spaceship/", "scene.gltf", scene,
+    function (meshes) {
+        console.log(meshes)
+
+        for (let mesh of meshes) {
+            mesh.checkCollisions = true;
+        }
+
+        let spaceship = meshes[0]
+        for (let i = 1; i < meshes.length; i++) {
+            meshes[i].setParent(spaceship)
+        }
+        spaceship.position = new B.Vector3(100, 200, -1500);
+        spaceship.rotation = new B.Vector3(-.2, -2, -.2);
+        spaceship.scaling = new B.Vector3(200,200,200);
     })
     
     //creates set of infinity stones
@@ -142,7 +162,7 @@ let scene = createScene();
 function createGroundAndSkyBox(scene) {
     //creates a ground with few subdivisions for smoother ground
     let ground = B.MeshBuilder.CreateGroundFromHeightMap("ground", "images/planet-ground-pimples.png", {
-        width: 4000, height: 4000, subdivisions: 16, maxHeight: 50, minHeight: -100
+        width: 7000, height: 7000, subdivisions: 16, maxHeight: 50, minHeight: -100
     }, scene, false);
     ground.checkCollisions = true;
     ground.position.y = 0;
