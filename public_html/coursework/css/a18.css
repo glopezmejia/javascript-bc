@@ -15,10 +15,6 @@ p {
     text-align: center;
 }
 
-.quote {
-   font-weight: 900;
-}
-
 #renderCanvas {
     width: 100%;
     height: 100%;
