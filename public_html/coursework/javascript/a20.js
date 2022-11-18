@@ -44,40 +44,24 @@ let createGround = function(scene) {
 }
 
 //function that creates the skybox of the scene
-// var createSkyBox = function(scene) {
+// let createSkyBox = function(scene) {
 function createSkyBox(scene) {
-    // let skybox = B.Mesh.CreateBox('skybox', 4000.0, scene)
-    // skybox.position.y = -100
-    // skybox.infiniteDistance = true
+    //creates a skybox and sets its distance to infinite to avoid seeing the corners of the box from the inside
+    let skybox = B.Mesh.CreateBox("skyBox", 4000.0, scene);
+    skybox.position.y = -100;
+    skybox.infiniteDistance = true;
 
-    // //creates the material for the skybox
-    // let skyboxMaterial = new B.StandardMaterial("skyBoxMaterial", scene);
-    // skyboxMaterial.backFaceCulling = false;
+    //creates the material for the skybox
+    let skyboxMaterial = new B.StandardMaterial("skyBoxMat", scene);
+    skyboxMaterial.backFaceCulling = false;
 
-    // //sets the faces of the skybox
-    // let files = ["_px.png", "_py.png", "_pz.png", "_nx.png", "_ny.png", "_nz.png"];
-    // skyboxMaterial.reflectionTexture = new B.CubeTexture("images/blue-skybox/", scene, files);
-    // skyboxMaterial.reflectionTexture.coordinatesMode = B.Texture.SKYBOX_MODE;
-    // skyboxMaterial.diffuseColor = new B.Color3(0, 0, 0);
-    // skyboxMaterial.specularColor = new B.Color3(0, 0, 0);
-    // skybox.material = skyboxMaterial;
-
-      //creates a skybox and sets its distance to infinite to avoid seeing the corners of the box from the inside
-      let skybox = B.Mesh.CreateBox("skyBox", 4000.0, scene);
-      skybox.position.y = -100;
-      skybox.infiniteDistance = true;
-
-  //creates the material for the skybox
-  let skyboxMaterial = new B.StandardMaterial("skyBoxMat", scene);
-      skyboxMaterial.backFaceCulling = false;
-
-  //sets the faces of the skybox
-  let files = ["_px.png", "_py.png", "_pz.png", "_nx.png", "_ny.png", "_nz.png"];
-  skyboxMaterial.reflectionTexture = new B.CubeTexture("images/blue-skybox/", scene, files);
-  skyboxMaterial.reflectionTexture.coordinatesMode = B.Texture.SKYBOX_MODE;
-  skyboxMaterial.diffuseColor = new B.Color3(0, 0, 0);
-  skyboxMaterial.specularColor = new B.Color3(0, 0, 0);
-  skybox.material = skyboxMaterial;
+    //sets the faces of the skybox
+    let files = ["_px.jpg", "_py.jpg", "_pz.jpg", "_nx.jpg", "_ny.jpg", "_nz.jpg"];
+    skyboxMaterial.reflectionTexture = new B.CubeTexture("images/yellow-skybox/", scene, files);
+    skyboxMaterial.reflectionTexture.coordinatesMode = B.Texture.SKYBOX_MODE;
+    skyboxMaterial.diffuseColor = new B.Color3(0, 0, 0);
+    skyboxMaterial.specularColor = new B.Color3(0, 0, 0);
+    skybox.material = skyboxMaterial;
 }
 
 //function that creates loop to render the scene
